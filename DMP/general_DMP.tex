@@ -1,0 +1,324 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage[right=35mm, left=20mm]{geometry} %Allows me to change the width of the margins
+
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+%for the hyperref to work, the document class has to have the option "final" and not "draft"
+
+% To draw the directory graphics
+\usepackage{forest}
+
+\definecolor{folderbg}{RGB}{124,166,198}
+\definecolor{folderborder}{RGB}{110,144,169}
+
+\def\Size{4pt}
+\tikzset{
+	folder/.pic={
+		\filldraw[draw=folderborder,top color=folderbg!50,bottom color=folderbg]
+		(-1.05*\Size,0.2\Size+5pt) rectangle ++(.75*\Size,-0.2\Size-5pt);  
+		\filldraw[draw=folderborder,top color=folderbg!50,bottom color=folderbg]
+		(-1.15*\Size,-\Size) rectangle (1.15*\Size,\Size);
+	}
+}
+% end of header for directory graphics
+
+%For boxes highlight based on the importance
+\usepackage{alertmessage}
+
+% For captions in minipages
+\usepackage{caption}
+
+%for adding code chunks to latex (answer from Stock Exchange latex)
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{frame=tb,
+	language=r,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
+
+% To do check lists
+\usepackage{enumitem} % it requires amssymb as well, see above
+\newlist{todolist}{itemize}{2}
+\newcommand{\checkbox}{\text{\fboxsep=-.15pt\fbox{\rule{0pt}{1.5ex}\rule{1.5ex}{0pt}}}}
+\setlist[todolist]{label=\checkbox}
+
+
+\usepackage{graphicx}
+\graphicspath{{Figures/}} %Setting the graphicspath
+\makeindex
+
+%This is to modify the formatting of the index
+\makeatletter
+\renewcommand*\@idxitem{\par\hangindent 20\p@} %the indent size on lines after first line
+\renewcommand*\subitem{\@idxitem \hspace*{20\p@}}
+\renewcommand*\subsubitem{\@idxitem \hspace*{20\p@}}
+\makeatother
+
+
+\author{Dr. Luisa F. Jimenez Soto}
+\title{Exotoxins Lab - Data Management Plan}
+\date{Started on June 2022}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyhead[L]{\thepage}
+
+\usepackage{tabto}
+
+%Created with TeXstudio 4.2.2 (git n/a), Using Qt Version 5.9.5, compiled with Qt 5.9.5 R. LaTex version.
+% pdfTeX 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian)
+% kpathsea version 6.2.3
+% Copyright 2017 Han The Thanh (pdfTeX) et al.
+% There is NO warranty.  Redistribution of this software is
+% covered by the terms of both the pdfTeX copyright and
+% the Lesser GNU General Public License.
+% For more information about these matters, see the file
+% named COPYING and the pdfTeX source.
+% Primary author of pdfTeX: Han The Thanh (pdfTeX) et al.
+% Compiled with libpng 1.6.34; using libpng 1.6.34
+% Compiled with zlib 1.2.11; using zlib 1.2.11
+% Compiled with poppler version 0.62.0
+
+
+\begin{document}
+	\maketitle
+	
+	%\thispagestyle{empty} %removes the page number below in the pages where the chapter number 
+	%with page number appears (between chapter titles)
+	
+	
+	%remove this section when in your final document... or not 
+	\section{credits for this template}
+	All sections and text explaining what should go in each section is copied directly from the CESSDA (https://www.cessda.eu/Training/DMEG) \href{URL}{PDF guide} called \textit{Adapt your Data Management Plan}
+		
+
+	\section[general info]{General Information}
+	
+	\NumTabs{8} % define 8 equally spaced tabs starting at the left margin
+	% and spanning \linewidth
+	\begin{itemize}
+		\item\textbf{Title of the study}:\tab Your very important title.
+		\item\textbf{Data steward}:\tab A name
+		\item\textbf{Data of the plan}:\tab June 2022
+	\end{itemize}
+
+	\section{Description of the project}
+	\subsection{Overview}
+	What is the nature of the project?
+	
+	What is the research question?
+	
+	What is the project time line?
+	\subsection{Principal researchers involved}
+	Who are the main researchers involved?
+	
+	What are their contact details?
+	\subsection{Collaborating researchers}
+	What are their contact details and their roles in the project?
+	
+	\subsection{Funding organization}
+	If funding is granted, what is the reference number of the funding granted?\\
+	What is the project’s title in the funding contract?
+	
+	\subsection{Data producer}
+	(I am still not sure what this means)
+	Which organisation has the administrative responsibility for the data?
+	
+	\subsection{Project data contact}
+	Who can be contacted about the project during and after it has finished?
+	
+	\subsection{Data owner(s)}
+	Which organisation(s) own(s) the data?
+	If several organisations are involved, which organisation owns what data?
+	
+	\subsection{Roles}
+	Who is responsible for updating the DMP and making sure that it’s followed?
+	Do project participants have any specific roles?
+	What is the project time line?
+	
+	\subsection{Cost and resources}
+	Are there costs you need to consider to buy specific software or hardware?
+	Are there costs you need to consider for storage and backup?
+	Are potential expenses and resources for (preparing the data for) archiving covered?
+	What resources will be dedicated to data management ensuring that data will be FAIR?
+	
+	\section[data info]{Data description and collection or re-use of existing data}
+	What kind of data will be used during the project?
+	If you are reusing existing data: What is the scope, volume and format? How are
+	different data sources integrated?
+	If you are collecting new data can you clarify why this is necessary?
+	
+	\subsection{Origin of the data}
+	
+	\subsection{Types of data created}
+	\subsection{Types of data re-used}
+	
+	\section{Organizing and Documenting the data}
+	\subsection{Data collection}
+	How will the data be collected?
+	Is specific software or hardware or staff required?
+	Who will be responsible for the data collection?
+	During which period will the data be collected?
+	Where will the data be collected?
+	\subsection{Data organization}
+	How will you organise your data?
+	Will the data be organised in simple files or more complex databases?
+	How will the data quality during the project be ensured?
+	If data consists of many different file types (e.g. videos, text, photos), is it possible to structure the data in a logical way?
+	\subsection{Data type and size}
+	What type(s) of data will be collected?
+	What is the scope, quantity and format of the material?
+	After the project: What is the total amount of data collected (in MB/GB)?
+	\subsection{Data format}
+	In what format will your data be?
+	Does the format change from the original to the processed/final data?
+	Will your (final) data be available in an open format?
+	\subsection{Directory structure and names}
+	How will you structure and name your folders/directories?
+	\subsection{File structure and names}
+	How will you structure and name your folders?
+	\subsection{Documentation}
+	What documentation will be created during the different phases of the project?
+	How will the documentation be structured?
+	\subsection{Metadata}
+	What metadata will be provided with the collected/ generated/ reused data?
+	How will metadata for each object be created?
+	Is there any program that can be used to document the data?
+	Can metadata be added directly into the files or will the metadata be produced in another
+	program or document?
+	\subsection{Metadata standard (if applicable)}
+	What metadata standard(s) will you use?
+	
+	\section{Processing your data}
+	\subsection{Versioning}
+	What is your strategy concerning versioning your data files (and scripts) during the project?
+	Will you create and/or follow a convention for versioning your data?
+	Who will be responsible for securing that a “Masterfile” will be maintained, documented
+	and versioned according to the project guidelines?
+	How can different versions of a data file be distinguished?
+	
+	\subsection{Interoperability}
+	Will you make use of established software and hardware? If not, how does the software
+	and hardware you use relate to other research?
+	
+	If applicable:
+	Will you make use of established terminologies/ontologies (i.e. structured controlled
+	vocabularies) in the project? If not, how do your terminologies relate to established
+	ones?
+	Which coding is used (if any)? Will you build on established coding schemes? If not,
+	how does your coding relate to other research?
+	
+	\subsection{Data quality}
+	How will data quality be evaluated?
+	What data quality control measures will be used?
+	
+	\section{Storing data and metadata}
+	\subsection{Storage}
+	How and where will the (meta)data be stored during the project?
+	For how long will the (meta)data be stored?
+	
+	\subsection{Backup}
+	How, where and at what intervals will the (meta)data be backed-up?
+	How will data be recovered in the case of a (meta)data loss incident?
+	
+	\subsection{Security}
+	How will sensitive (meta)data be protected? (if applicable)
+	How will (meta)data access be managed?
+	
+	\section{Protecting your data}
+	\subsection{Ethical Review (if applicable)}
+	Does your project require approval by a local ethics committee?
+	How will possible ethical issues be taken into account, and codes of conduct followed?
+	\subsection{Informed consent (if applicable)}
+	Do you require informed consent for your project?
+	If so, how will permission be obtained?
+	How are consent files organised and stored?
+	
+	
+	\subsection{(sensitive) Personal data /confidential information (if applicable)}
+	How will access to (sensitive) personal data during the project be controlled?
+	How will collaborators be granted access to the data in a secure way?
+	If the research project is going to have data that includes confidential information or
+	information that requires informed consent, is there a requirement to notify a privacy officer?
+	Is there any confidential information within the material that requires special treatment
+	and/or limits the access to it during/after the project?
+	How will the material be protected during/after the project?
+	How will permissions and restrictions be enforced?
+	
+	\subsection{Intellectual property rights (IPR) or Copyrights}
+	Are there IPR or copyright issues to consider?
+	Will permission be needed to collect/reuse the data?
+	Will these rights be transferred to another organisation for data distribution and archiving?
+	
+	\subsection{Agreements (if applicable)}
+	What are the agreements with other stakeholders?
+	
+	\subsection{Restrictions (if applicable)}
+	Are there any other restrictions that need to be considered?
+	
+	\section{Archiving and publishing your data}
+	\subsection{Archiving}
+	How and where will the data be stored after the project’s completion?
+	Will you archive your data in a trusted data repository?
+	Will the application of a persistent identifier to your data be ensured?
+	\subsection{Data formats}
+	What formats will you provide your data in for archiving (and sharing)?
+	Will specific software be required to process your data? Can this software be deposited
+	with the data?
+	\subsection{Access (if applicable)}
+	Will your data be available (Open Access)?
+	Will all data or only parts of it be published?
+	What licenses do you need for your data?
+	How should your data be cited when reused?
+	Will there be an embargo period for (all or some of) the data?
+	Are there other agreements or restrictions (see above) that need to be considered?
+	Are there any legal/ethical restrictions that prevents the publication of all the material?
+	Will these restrictions mean that action must be taken before the material can be
+	made available?
+	Is there a risk of delayed publication/making data available (all or parts of)?
+	If so what might be needed to do to avoid this?
+	
+	\section{Discovering data}
+	\subsection{Identification of needs}
+	Do you plan to use existing data for your research?
+	What is the purpose for which you need the data?
+	What do you want to learn from the data?
+	What type of data do you need?
+	
+	\subsection{Search for data}
+	Do you know where the data may be located?
+	How do you plan to search for the data?
+	Evaluation of data quality
+	What is the minimal required quality of the data (in terms of origin, contents, scope,
+	size, methods, etc.)?
+	How do you plan to evaluate data quality (evaluation of metadata, tests, analysis,
+	comparisons)?
+	
+	\subsection{Gaining access to data}
+	What are the (expected) terms and conditions for data access and use?
+	What is the (expected) process for gaining access to the data?
+	What is the (expected) time-span of the process for gaining access to the data?
+	What are the (expected) costs for data access and use?
+	
+	
+\end{document}
