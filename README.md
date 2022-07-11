@@ -12,7 +12,9 @@ The documents presented here are adapted from the following sources:
 Here is what you will find in the directories
 
 Directory: DMP
- - The Data Management Plan Templates (LaTex and Word)
- - The General sections from my Data Management Plan (as PDF)
+ - The Data Management Plan Templates (LaTex (*.tex), Markdown (*.md) and Word (*.docx)) as General_DMP
+ - The General sections from my Data Management Plan (as PDF) called DMP_ExotoxinsLab_General.pdf
+
+
 
 
