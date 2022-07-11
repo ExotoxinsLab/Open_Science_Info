@@ -1,6 +1,6 @@
 ---
-title: "Exotoxins Lab - Data Management Plan"
-author: "Dr. Luisa F. Jimenez Soto"
+title: "Your Lab - Data Management Plan"
+author: "Your name"
 date: "Started on June 2022"
 output: word_document
 ---
